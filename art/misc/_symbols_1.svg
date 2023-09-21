@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: MakeMusic 27.3.0.137 -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" width="595" height="842" viewBox="0 0 595 842" enable-background="new 0 0 595 842" xml:space="preserve"
+style="position:absolute; top:0; left:0;">
+<font horiz-adv-x="1000">
+<!-- Version 2.7;SMTG;FinaleMaestro;2021;FL714 -->
+<font-face font-family="'Finale Maestro'" units-per-em="1000" underline-position="-75.000000" underline-thickness="50.000000">
+<font-face-src><font-face-name name="FinaleMaestro"/></font-face-src></font-face>
+<missing-glyph horiz-adv-x="0" />
+<glyph unicode="&#xE050;" horiz-adv-x="683.000" d="M488,1015C524,1015 548,974 548,919C548,819 430,697 350,634C346,659 345,684 345,710C345,858 400,1015 488,1015M429,145C546,143 602,72 602,-36C602,-111 561,-189 486,-211M462,-219C435,-226 408,-229 382,-229C207,-229 68,-94 68,59C68,214 231,365 353,455L383,271C264,246 205,138 205,60C205,-31 259,-106 338,-134L348,-123C303,-101 269,-32 269,12C269,54 301,129 402,143M467,-252C481,-321 499,-468 499,-494C499,-595 424,-664 338,-664C282,-664 243,-643 230,-625C308,-603 341,-557 341,-510C341,-451 287,-409 237,-409C159,-409 128,-477 128,-537C128,-651 255,-690 332,-690C467,-690 525,-587 525,-502C525,-473 504,-306 492,-245C604,-207 683,-94 683,24C683,164 591,277 436,277C427,277 418,277 409,276L376,470C440,521 483,568 518,627C561,700 589,770 589,892C589,1003 517,1170 473,1170C414,1170 337,1026 322,958C311,910 306,852 306,814C306,742 315,680 325,613C169,498 0,337 0,135C0,-110 183,-261 387,-261C416,-261 442,-257 467,-252z" />
+<glyph unicode="&#xE05C;" horiz-adv-x="654.000" d="M179,-506L219,-506L219,505L179,505M120,-506L120,505L0,505L0,-506M317,222C315,119 276,48 238,0C276,-48 317,-119 317,-222C324,-180 341,-101 436,-101C507,-101 535,-164 535,-275C535,-382 509,-484 422,-484C361,-484 307,-452 307,-432C307,-429 309,-427 312,-427C326,-429 337,-432 348,-432C389,-432 410,-404 410,-360C410,-322 376,-295 341,-295C290,-295 262,-342 262,-385C262,-464 340,-511 433,-511C569,-511 654,-401 654,-282C654,-166 595,-49 469,-49C412,-49 378,-80 358,-94C344,-77 326,-6 326,0C326,6 344,77 358,94C378,80 412,49 469,49C595,49 654,166 654,282C654,401 569,511 433,511C340,511 262,464 262,385C262,342 290,295 341,295C376,295 410,322 410,360C410,404 389,432 348,432C337,432 326,429 312,427C309,427 307,429 307,432C307,452 361,485 422,485C506,485 535,382 535,275C535,164 507,101 436,101C341,101 324,180 317,222z" />
+<glyph unicode="&#xE062;" horiz-adv-x="665.000" d="M517,-28C517,114 420,250 248,250C80,250 0,136 0,15C0,-53 49,-110 110,-110C175,-110 216,-60 216,-9C216,41 187,91 130,91C89,91 68,71 59,71C51,71 51,83 51,86C51,157 143,221 223,221C315,221 372,126 372,-20C372,-244 274,-465 -43,-571L-36,-586C263,-547 517,-309 517,-28M555,123C555,91 580,69 611,69C643,69 665,94 665,125C665,157 640,177 609,177C577,177 555,154 555,123M554,-129C555,-161 580,-183 611,-183C643,-183 665,-158 665,-127C665,-96 640,-75 609,-75C578,-75 554,-99 554,-129z" />
+<glyph unicode="&#xE081;" horiz-adv-x="306.000" d="M286,-243L286,-217C255,-217 238,-205 238,-181L238,243L123,243L20,-1L46,-1L75,64C91,99 108,138 116,157L116,-181C116,-208 99,-216 68,-217L68,-243z" />
+<glyph unicode="&#xE082;" horiz-adv-x="430.000" d="M381,-68C372,-96 346,-124 321,-124C289,-124 252,-88 178,-88C158,-88 137,-91 118,-100C120,-70 290,-23 335,-2C408,32 410,83 410,106C410,203 338,249 222,249C119,249 31,185 31,108C31,68 51,15 114,15C155,15 182,51 182,85C182,150 113,156 113,176C113,195 159,226 192,226C239,226 278,173 278,114C278,52 261,30 128,-53C79,-83 20,-149 20,-225C20,-234 20,-241 21,-247L40,-247C49,-216 80,-191 116,-191C166,-191 194,-246 264,-246C346,-246 385,-151 399,-73z" />
+<glyph unicode="&#xE083;" horiz-adv-x="414.000" d="M394,-99C394,-30 326,2 254,8C330,31 374,66 374,125C374,195 304,246 225,246C112,246 29,203 29,115C29,79 67,41 104,41C142,41 178,73 178,102C178,154 129,165 129,192C129,205 145,217 170,217C217,217 254,185 254,119C254,56 211,24 127,14L126,-12C224,-23 269,-37 269,-102C269,-162 225,-224 174,-224C151,-224 130,-215 130,-195C130,-162 166,-155 166,-106C166,-63 127,-42 90,-42C47,-42 20,-79 20,-114C20,-199 100,-246 198,-246C306,-246 394,-177 394,-99z" />
+<glyph unicode="&#xE084;" horiz-adv-x="437.000" d="M417,-110L417,-82L345,-82L345,175L223,41L223,-82L68,-82C145,9 272,135 344,250L171,250C154,121 105,13 20,-91L38,-110L223,-110L223,-178C223,-209 194,-215 175,-215L175,-241L392,-241L392,-215C370,-215 345,-208 345,-176L345,-110z" />
+<glyph unicode="&#xE085;" horiz-adv-x="382.000" d="M362,253C303,245 250,242 200,242C145,242 93,246 40,253L40,-13C75,15 108,35 149,35C222,35 243,-52 243,-102C243,-158 198,-222 161,-222C145,-222 126,-214 126,-195C126,-179 163,-172 163,-123C163,-90 135,-52 97,-52C52,-52 20,-97 20,-132C20,-204 104,-247 165,-247C239,-247 290,-224 322,-170C338,-143 352,-115 352,-72C352,-32 337,0 320,22C291,59 239,76 200,76C158,76 112,59 65,32L65,142C115,142 154,132 194,132C264,132 331,159 362,253z" />
+<glyph unicode="&#xE087;" horiz-adv-x="448.000" d="M408,252C384,231 379,179 345,179C310,179 258,249 179,249C127,249 73,211 54,211C42,211 38,231 36,241L19,241L19,88L36,88C43,125 68,159 111,159C181,159 201,86 268,86C291,86 339,99 350,113C331,37 243,1 161,-104C121,-155 115,-193 115,-252C119,-252 123,-253 127,-253C154,-253 169,-244 197,-244C223,-244 231,-253 257,-253C262,-253 267,-253 274,-252C274,-216 280,-152 299,-98C326,-21 388,64 415,162C419,177 428,220 428,239z" />
+<glyph unicode="&#xE088;" horiz-adv-x="415.000" d="M395,-83C395,-30 365,5 329,24C357,46 377,83 377,121C377,213 305,245 205,245C101,245 30,197 30,111C30,60 52,19 94,-4C67,-15 20,-58 20,-121C20,-206 110,-250 194,-250C304,-250 395,-178 395,-83M328,120C328,88 308,60 295,46C238,66 111,109 111,158C111,196 160,220 206,220C297,220 328,168 328,120M293,-140C293,-183 237,-218 189,-218C112,-218 72,-174 72,-114C72,-78 80,-50 124,-23C198,-39 293,-64 293,-140z" />
+<glyph unicode="&#xE089;" horiz-adv-x="417.000" d="M20,92C20,16 82,-41 154,-41C193,-41 232,-34 275,-3C276,-14 276,-25 276,-36C276,-145 230,-233 184,-233C167,-233 153,-220 153,-205C153,-176 184,-162 184,-131C184,-100 152,-77 110,-77C65,-77 44,-116 44,-146C44,-210 126,-255 184,-255C302,-255 397,-142 397,10C397,154 329,237 211,237C88,237 20,178 20,92M268,122C268,53 252,6 203,6C166,6 140,56 140,106C140,164 166,213 208,213C242,213 268,172 268,122z" />
+<glyph unicode="&#xE08C;" horiz-adv-x="414.000" d="M0,-30L178,-30L178,-208L236,-208L236,-30L414,-30L414,28L236,28L236,206L178,206L178,28L0,28z" />
+<glyph unicode="&#xE0A2;" horiz-adv-x="420.000" d="M0,3C0,-90 114,-132 225,-132C334,-132 420,-74 420,-8C420,89 306,134 196,134C113,134 0,92 0,3M124,31C124,66 151,106 195,106C219,106 238,99 255,82C275,62 297,-2 297,-34C297,-69 267,-109 223,-109C196,-109 178,-101 159,-80C144,-64 124,-7 124,31z" />
+<glyph unicode="&#xE0A3;" horiz-adv-x="328.000" d="M208,132C97,132 0,46 0,-50C0,-131 106,-134 129,-134C250,-134 328,-40 328,49C328,114 259,132 208,132M302,57C302,16 239,-24 162,-63C162,-63 103,-97 72,-97C49,-97 28,-86 28,-60C28,-13 136,42 177,63C212,80 236,93 257,93C284,93 302,78 302,57z" />
+<glyph unicode="&#xE0A4;" horiz-adv-x="318.000" d="M0,-40C0,-93 43,-132 111,-132C206,-132 318,-56 318,35C318,88 275,126 206,126C114,126 0,55 0,-40z" />
+<glyph unicode="&#xE1E7;" horiz-adv-x="104.000" d="M0,1C0,-27 23,-50 52,-50C81,-50 104,-27 104,1C104,29 81,51 52,51C23,51 0,29 0,1z" />
+<glyph unicode="&#xE240;" horiz-adv-x="264.000" d="M0,31L0,-231L20,-231C185,-247 248,-439 248,-582C248,-638 240,-706 221,-753L233,-755C253,-699 264,-637 264,-570C264,-473 244,-374 189,-280C115,-154 24,-77 20,31z" />
+<glyph unicode="&#xE260;" horiz-adv-x="210.000" d="M26,433L0,433L0,-158C25,-139 128,-66 148,-49C181,-21 210,4 210,66C210,103 182,155 123,155C85,155 60,144 26,113M125,39C125,-26 85,-59 40,-96L26,-107L26,5C26,44 28,105 76,105C103,105 125,79 125,39z" />
+<glyph unicode="&#xE261;" horiz-adv-x="165.000" d="M139,92L139,-65L25,-95L25,62M25,158L25,381L0,381L0,-197L139,-161L139,-375L165,-375L165,196z" />
+<glyph unicode="&#xE262;" horiz-adv-x="238.000" d="M170,-314L199,-314L199,-150L238,-138L238,-34L199,-46L199,102L238,115L238,219L199,206L199,344L170,344L170,197L72,165L72,319L43,319L43,156L0,142L0,38L43,52L43,-97L0,-111L0,-215L43,-201L43,-339L72,-339L72,-191L170,-160M72,61L170,93L170,-56L72,-87z" />
+<glyph unicode="&#xE4E3;" horiz-adv-x="318.000" d="M0,0L0,-144L318,-144L318,0z" />
+<glyph unicode="&#xE4E4;" horiz-adv-x="318.000" d="M0,128L0,0L318,0L318,128z" />
+<glyph unicode="&#xE4E5;" horiz-adv-x="253.000" d="M251,-201C226,-163 145,-95 145,-17C145,35 190,109 231,158L49,387L35,377C61,337 105,270 105,223C105,179 73,126 50,90C38,70 18,55 18,42C18,22 68,-40 158,-127C142,-124 110,-119 87,-119C31,-119 0,-163 0,-202C0,-265 70,-321 129,-359L141,-349C109,-321 90,-290 90,-268C90,-223 124,-197 168,-197C197,-197 228,-208 249,-217z" />
+<glyph unicode="&#xE4E6;" horiz-adv-x="265.000" d="M0,126C0,82 32,39 86,39C132,39 178,71 223,103C206,12 160,-104 135,-183L114,-248L154,-248L265,171L251,179C225,152 210,110 153,106C155,113 157,123 157,132C157,179 130,216 90,216C32,216 0,166 0,126z" />
+<glyph unicode="&#xE4E7;" horiz-adv-x="332.000" d="M0,-136C0,-180 31,-223 85,-223C131,-223 178,-191 223,-159L198,-250C179,-319 157,-390 138,-445L115,-510L154,-510L332,169L318,177C297,150 275,111 220,104C222,111 224,121 224,130C224,177 197,214 157,214C99,214 67,164 67,124C67,80 99,37 153,37C199,37 245,69 290,101L246,-70C229,-121 202,-151 154,-155C156,-148 157,-139 157,-130C157,-83 132,-46 92,-46C34,-46 0,-96 0,-136z" />
+<glyph unicode="&#xE4E8;" horiz-adv-x="398.000" d="M133,377C133,333 164,291 218,291C264,291 315,327 360,360C345,305 326,222 315,187C301,140 266,109 220,107C222,114 223,123 223,132C223,179 195,216 155,216C97,216 67,166 67,126C67,82 96,39 150,39C193,39 243,73 295,111C281,50 265,-11 247,-72C234,-119 207,-147 152,-152C154,-145 155,-137 155,-128C155,-81 130,-42 90,-42C32,-42 0,-94 0,-134C0,-178 29,-218 83,-218C129,-218 180,-182 225,-150L198,-250C179,-319 154,-388 135,-443L113,-506L153,-506L398,422L383,430C362,396 343,365 285,357C287,364 289,374 289,383C289,430 262,467 222,467C164,467 133,417 133,377z" />
+<glyph unicode="&#xE4E9;" horiz-adv-x="466.000" d="M201,374C201,330 233,288 284,288C330,288 379,319 424,351L378,175C367,133 338,111 286,104C288,111 290,119 290,128C290,175 265,213 225,213C167,213 133,162 133,122C133,78 164,36 218,36C264,36 314,73 359,106C344,51 326,-33 315,-68C301,-115 266,-145 220,-147C222,-140 224,-132 224,-123C224,-76 198,-39 158,-39C100,-39 68,-89 68,-129C68,-173 98,-216 152,-216C195,-216 243,-182 295,-144C276,-205 264,-257 246,-318C233,-365 203,-391 152,-398C154,-391 156,-383 156,-374C156,-327 130,-288 90,-288C32,-288 0,-340 0,-380C0,-424 29,-464 83,-464C129,-464 180,-428 225,-396L197,-505C183,-558 160,-641 138,-698L114,-760L154,-760L466,419L451,427C420,385 408,360 354,354C357,363 358,372 358,381C358,426 336,464 293,464C250,464 201,435 201,374z" />
+</font>
+<font horiz-adv-x="1000">
+<!-- 1.001;pyrs;MaestroWide -->
+<font-face font-family="'Maestro Wide'" font-weight="bold" units-per-em="1000" underline-position="-78.000000" underline-thickness="9.000000">
+<font-face-src><font-face-name name="Maestro Wide"/></font-face-src></font-face>
+<missing-glyph horiz-adv-x="0" />
+<glyph unicode="0" horiz-adv-x="392.000" d="M203,262C238,262 269,255 294,240C320,225 341,206 358,182C374,157 386,131 393,102C401,72 405,43 405,12C405,-18 401,-47 393,-77C386,-106 374,-133 358,-157C341,-181 320,-200 295,-215C269,-230 239,-237 203,-237C168,-237 137,-230 112,-215C86,-200 65,-181 49,-157C32,-133 20,-106 13,-77C5,-48 1,-18 1,12C1,43 5,72 13,102C20,131 32,158 49,182C65,206 86,225 112,240C138,255 168,262 203,262M149,10C149,-14 149,-37 151,-61C152,-85 156,-107 160,-127C165,-147 171,-163 178,-174C186,-186 194,-192 204,-192C214,-192 223,-186 230,-174C237,-163 243,-147 248,-127C253,-107 256,-84 258,-60C259,-35 260,-12 260,10C260,32 259,56 258,81C256,106 253,129 248,150C244,170 238,187 231,199C224,211 215,217 204,217C194,217 185,211 177,199C169,186 163,170 159,150C154,129 152,107 150,83C149,58 149,34 149,10z" />
+</font>
+<font horiz-adv-x="2048">
+<!-- Monotype:Times New Roman Regular (Microsoft) -->
+<font-face font-family="'Times New Roman'" units-per-em="2048" underline-position="-223.000000" underline-thickness="100.000000">
+<font-face-src><font-face-name name="Times New Roman"/></font-face-src></font-face>
+<missing-glyph horiz-adv-x="0" />
+<glyph unicode="&#xA9;" horiz-adv-x="1556.000" d="M778,1387C897,1387 1014,1357 1127,1296C1240,1235 1329,1147 1393,1034C1456,920 1488,801 1488,678C1488,555 1457,438 1394,325C1331,212 1244,125 1131,63C1018,0 901,-31 778,-31C655,-31 538,0 426,63C313,125 226,212 163,325C100,438 69,555 69,678C69,801 101,920 165,1034C228,1147 317,1235 430,1296C543,1357 659,1387 778,1387M778,1326C669,1326 563,1298 460,1242C357,1186 276,1106 218,1003C160,899 131,791 131,678C131,566 160,459 217,356C274,253 353,173 456,116C559,59 666,30 778,30C890,30 998,59 1101,116C1204,173 1284,253 1341,356C1398,459 1426,566 1426,678C1426,791 1397,899 1339,1003C1281,1106 1200,1186 1097,1242C994,1298 887,1326 778,1326M1129,1134L1149,854L1110,854C1086,933 1048,993 996,1032C943,1071 880,1090 807,1090C752,1090 704,1079 661,1056C618,1033 583,1003 556,965C536,936 519,898 506,851C493,804 486,754 486,701C486,560 516,456 577,389C638,322 718,288 817,288C947,288 1051,342 1129,450L1166,431C1073,296 946,228 783,228C650,228 539,271 452,358C364,444 320,549 320,672C320,800 367,909 460,1000C553,1090 673,1135 818,1135C849,1135 874,1133 895,1129C915,1125 951,1114 1003,1097C1020,1092 1032,1089 1040,1089C1051,1089 1060,1092 1067,1098C1074,1103 1082,1115 1089,1134z" />
+</font>
+
+<g id="Music">
+	<rect x="0.000" y="0.000" width="595.250" height="842.000" fill="rgb(255,255,255)" stroke="none" />
+	<line x1="92.934" y1="126.422" x2="92.934" y2="269.922" fill="none" stroke="rgb(0,0,0)" stroke-width="0.514"/>
+	<text font-family="'Finale Maestro'" transform="translate(98.229,141.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE050;</text>
+	<text font-family="'Finale Maestro'" transform="translate(98.229,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE05C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(98.229,254.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE062;</text>
+	<text font-family="'Finale Maestro'" transform="translate(117.448,141.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE082;</text>
+	<text font-family="'Finale Maestro'" transform="translate(118.729,131.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE081;</text>
+	<text font-family="'Finale Maestro'" transform="translate(126.203,136.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(134.104,141.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE084;</text>
+	<text font-family="'Finale Maestro'" transform="translate(134.318,131.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE083;</text>
+	<text font-family="'Finale Maestro'" transform="translate(143.073,136.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(150.974,141.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE088;</text>
+	<text font-family="'Finale Maestro'" transform="translate(151.188,131.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE085;</text>
+	<text font-family="'Finale Maestro'" transform="translate(159.516,136.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(167.630,141.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE088;</text>
+	<text font-family="'Finale Maestro'" transform="translate(167.417,131.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE087;</text>
+	<text font-family="'Finale Maestro'" transform="translate(176.599,136.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(185.568,141.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE081;</text>
+	<text font-family="'Finale Maestro'" transform="translate(184.500,131.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE089;</text>
+	<text font-family="'Finale Maestro'" transform="translate(117.448,203.297)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE082;</text>
+	<text font-family="'Finale Maestro'" transform="translate(118.729,193.047)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE081;</text>
+	<text font-family="'Finale Maestro'" transform="translate(126.203,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(134.104,203.297)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE084;</text>
+	<text font-family="'Finale Maestro'" transform="translate(134.318,193.047)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE083;</text>
+	<text font-family="'Finale Maestro'" transform="translate(143.073,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(150.974,203.297)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE088;</text>
+	<text font-family="'Finale Maestro'" transform="translate(151.188,193.047)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE085;</text>
+	<text font-family="'Finale Maestro'" transform="translate(159.516,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(167.630,203.297)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE088;</text>
+	<text font-family="'Finale Maestro'" transform="translate(167.417,193.047)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE087;</text>
+	<text font-family="'Finale Maestro'" transform="translate(176.599,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(185.568,203.297)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE081;</text>
+	<text font-family="'Finale Maestro'" transform="translate(184.500,193.047)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE089;</text>
+	<text font-family="'Finale Maestro'" transform="translate(117.448,264.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE082;</text>
+	<text font-family="'Finale Maestro'" transform="translate(118.729,254.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE081;</text>
+	<text font-family="'Finale Maestro'" transform="translate(126.203,259.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(134.104,264.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE084;</text>
+	<text font-family="'Finale Maestro'" transform="translate(134.318,254.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE083;</text>
+	<text font-family="'Finale Maestro'" transform="translate(143.073,259.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(150.974,264.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE088;</text>
+	<text font-family="'Finale Maestro'" transform="translate(151.188,254.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE085;</text>
+	<text font-family="'Finale Maestro'" transform="translate(159.516,259.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(167.630,264.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE088;</text>
+	<text font-family="'Finale Maestro'" transform="translate(167.417,254.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE087;</text>
+	<text font-family="'Finale Maestro'" transform="translate(176.599,259.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE08C;</text>
+	<text font-family="'Finale Maestro'" transform="translate(185.568,264.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE081;</text>
+	<text font-family="'Finale Maestro'" transform="translate(184.500,254.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE089;</text>
+	<line x1="557.984" y1="126.422" x2="557.984" y2="269.922" fill="none" stroke="rgb(0,0,0)" stroke-width="2.563"/>
+	<line x1="553.884" y1="126.422" x2="553.884" y2="269.922" fill="none" stroke="rgb(0,0,0)" stroke-width="0.514"/>
+	<line x1="92.677" y1="126.422" x2="559.266" y2="126.422" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="131.547" x2="559.266" y2="131.547" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="136.672" x2="559.266" y2="136.672" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="141.797" x2="559.266" y2="141.797" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="146.922" x2="559.266" y2="146.922" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="187.922" x2="559.266" y2="187.922" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="193.047" x2="559.266" y2="193.047" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="198.172" x2="559.266" y2="198.172" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="203.297" x2="559.266" y2="203.297" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="208.422" x2="559.266" y2="208.422" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="249.422" x2="559.266" y2="249.422" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="254.547" x2="559.266" y2="254.547" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="259.672" x2="559.266" y2="259.672" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="264.797" x2="559.266" y2="264.797" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<line x1="92.677" y1="269.922" x2="559.266" y2="269.922" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<path stroke="none" fill="rgb(0,0,0)" d="M89.474,123.859C95.880,123.859 97.161,123.005 98.870,121.297C97.802,124.286 95.240,125.141 91.396,125.141L91.396,271.203C95.240,271.203 97.802,272.057 98.870,275.047C97.161,273.339 95.880,272.484 89.474,272.484z" />
+	<text font-family="'Finale Maestro'" transform="translate(223.151,144.359)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE1E7;</text>
+	<text font-family="'Finale Maestro'" transform="translate(215.961,128.984)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE240;</text>
+	<line x1="215.827" y1="146.205" x2="215.827" y2="128.984" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<text font-family="'Finale Maestro'" transform="translate(209.057,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE0A4;</text>
+	<text font-family="'Finale Maestro'" transform="translate(202.438,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE262;</text>
+	<line x1="240.598" y1="146.205" x2="240.598" y2="128.984" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<text font-family="'Finale Maestro'" transform="translate(233.828,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE0A4;</text>
+	<text font-family="'Finale Maestro'" transform="translate(228.490,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE261;</text>
+	<line x1="257.461" y1="145.918" x2="257.461" y2="128.984" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<text font-family="'Finale Maestro'" transform="translate(250.698,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE0A3;</text>
+	<text font-family="'Finale Maestro'" transform="translate(244.932,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE260;</text>
+	<text font-family="'Finale Maestro'" transform="translate(273.974,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE0A2;</text>
+	<text font-family="'Finale Maestro'" transform="translate(268.635,146.922)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE261;</text>
+	<text font-family="'Finale Maestro'" transform="translate(330.135,136.672)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E7;</text>
+	<text font-family="'Finale Maestro'" transform="translate(209.057,193.047)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E3;</text>
+	<line x1="208.417" y1="193.047" x2="216.745" y2="193.047" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<text font-family="'Finale Maestro'" transform="translate(275.896,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E4;</text>
+	<line x1="275.255" y1="198.172" x2="283.583" y2="198.172" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<text font-family="'Finale Maestro'" transform="translate(297.250,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E5;</text>
+	<text font-family="'Finale Maestro'" transform="translate(310.917,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E6;</text>
+	<text font-family="'Finale Maestro'" transform="translate(320.740,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E7;</text>
+	<text font-family="'Finale Maestro'" transform="translate(330.135,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E8;</text>
+	<text font-family="'Finale Maestro'" transform="translate(340.813,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E9;</text>
+	<text font-family="'Finale Maestro'" transform="translate(352.984,198.172)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E9;</text>
+	<text font-family="'Finale Maestro'" transform="translate(371.349,254.547)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">&#xE4E3;</text>
+	<line x1="370.708" y1="254.547" x2="379.036" y2="254.547" fill="none" stroke="rgb(0,0,0)" stroke-width="0.467"/>
+	<text font-family="'Maestro Wide'" font-weight="bold" transform="translate(194.750,141.797)" font-size="20.500000" fill="rgb(0,0,0)" xml:space="preserve">0</text>
+	<text font-family="'Times New Roman'" transform="translate(304.250,812.500)" font-size="10.000000" fill="rgb(0,0,0)" xml:space="preserve">&#xA9;</text>
+</g>
+</svg>
