@@ -1,16 +1,17 @@
-MVP 0.0:
+[DONE] MVP 0.0:
 - [DONE] ability to draw staff lines;
 - [DONE] ability to draw ledger lines;
-- a mechanism for automatically placing ledger lines when needed;
+- [DONE] a mechanism for automatically placing ledger lines when needed;
 - [DONE] ability to place stemless full noteheads on the staff:
-- a mechanism for automatically placing notes one after another (melody);
-- a mechanism for automatically placing notes one on top of another (harmony), while avoiding collisions between seconds;
+- [DONE] a mechanism for automatically placing notes one after another (melody);
+- [DONE] a mechanism for automatically placing notes one on top of another (harmony), while avoiding collisions between seconds;
+- [DONE] a mechanism for placing accidentals in front of noteheads, while avoiding any collision.
 - [DONE] ability to place clefs on the staff:
   - [DONE] treble;
   - [DONE] bass.
-- a mechanism to offset notehead positions based on type of key;
+- [DONE] a mechanism to offset notehead positions based on type of key;
 - [DONE] ability to place alterations:
   - [DONE] sharps;
   - [DONE] flats;
   - [DONE] naturals.
-- a mechanism to automatically avoid collisions of alterations, clefs and noteheads.
+- [DONE] a mechanism to automatically avoid collisions of alterations, clefs and noteheads.

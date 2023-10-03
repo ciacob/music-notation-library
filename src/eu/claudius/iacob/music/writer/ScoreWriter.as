@@ -39,10 +39,14 @@ public class ScoreWriter {
 
             // [DEBUG]
             if (volatilePayload) {
-                var g:Graphics = _container.graphics;
-                g.lineStyle(2, 0xff0000);
-                var bounds:Rectangle = (volatilePayload.bounds as Rectangle);
-                g.drawRect(bounds.x, bounds.y, bounds.width, bounds.height);
+                try {
+                    var g:Graphics = _container.graphics;
+                    g.lineStyle(2, 0xff0000);
+                    var bounds:Rectangle = (volatilePayload.bounds as Rectangle);
+                    g.drawRect(bounds.x, bounds.y, bounds.width, bounds.height);
+                } catch (e : Error) {
+                    trace(e, '\n', e.getStackTrace());
+                }
             }
             // [/DEBUG]
 

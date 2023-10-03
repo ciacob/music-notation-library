@@ -119,28 +119,28 @@ public class MusicNotator extends Sprite {
         graphics.lineStyle(2, 0x3366ff);
         graphics.drawRect(bassBounds.x, bassBounds.y, bassBounds.width, bassBounds.height);
 
-        // TEST: draw shape nothead on F pitch
-        var hoteHeadInfo:Object = BaseDrawingTools.placeFullNotehead(this, bassBounds.right + 10,
+        // TEST: draw shape notehead on F pitch
+        var noteHeadInfo:Object = BaseDrawingTools.placeFullNotehead(this, bassBounds.right + 10,
                 linesResult.intrinsicPositions[7], linesResult.step);
-        var noteheadBounds:Rectangle = hoteHeadInfo.bounds;
+        var noteheadBounds:Rectangle = noteHeadInfo.bounds;
         graphics.drawRect(noteheadBounds.x, noteheadBounds.y, noteheadBounds.width, noteheadBounds.height);
 
-        // TEST: draw shape nothead on E pitch
-        hoteHeadInfo = BaseDrawingTools.placeFullNotehead(this, noteheadBounds.right + 10,
+        // TEST: draw shape notehead on E pitch
+        noteHeadInfo = BaseDrawingTools.placeFullNotehead(this, noteheadBounds.right + 10,
                 linesResult.intrinsicPositions[6], linesResult.step);
-        noteheadBounds = hoteHeadInfo.bounds;
+        noteheadBounds = noteHeadInfo.bounds;
         graphics.drawRect(noteheadBounds.x, noteheadBounds.y, noteheadBounds.width, noteheadBounds.height);
 
-        // TEST: draw shape nothead on G pitch
-        hoteHeadInfo = BaseDrawingTools.placeFullNotehead(this, noteheadBounds.right + 10,
+        // TEST: draw shape notehead on G pitch
+        noteHeadInfo = BaseDrawingTools.placeFullNotehead(this, noteheadBounds.right + 10,
                 linesResult.intrinsicPositions[8], linesResult.step);
-        noteheadBounds = hoteHeadInfo.bounds;
+        noteheadBounds = noteHeadInfo.bounds;
         graphics.drawRect(noteheadBounds.x, noteheadBounds.y, noteheadBounds.width, noteheadBounds.height);
 
-        // TEST: draw shape nothead on A pitch
-        hoteHeadInfo = BaseDrawingTools.placeFullNotehead(this, noteheadBounds.right + 10,
+        // TEST: draw shape notehead on A pitch
+        noteHeadInfo = BaseDrawingTools.placeFullNotehead(this, noteheadBounds.right + 10,
                 linesResult.intrinsicPositions[9], linesResult.step);
-        noteheadBounds = hoteHeadInfo.bounds;
+        noteheadBounds = noteHeadInfo.bounds;
         graphics.drawRect(noteheadBounds.x, noteheadBounds.y, noteheadBounds.width, noteheadBounds.height);
 
 
@@ -167,13 +167,18 @@ public class MusicNotator extends Sprite {
         //----
         var settings:Object = {};
         settings[Keys.HORIZONTAL_PADDING] = 10;
+        settings[Keys.INNER_CLUSTER_PADDING] = 5;
         var writer:ScoreWriter = new ScoreWriter(swCanvas, settings);
         writer.addCommand(new PutStaff(swW - 40, 20, 100));
-        writer.addCommand(new PutCleff(ClefTypes.BASS));
         writer.addCommand(new PutCleff(ClefTypes.TREBLE));
-        writer.addCommand(new PutCleff(ClefTypes.BASS));
-        writer.addCommand(new PutCleff(ClefTypes.LAST_KNOWN));
         writer.addCommand(new PutCluster(null, new <uint>[58, 59, 60, 62, 64, 65, 67, 69, 71, 72, 74, 76, 77, 79, 81, 83, 84]));
+        writer.addCommand(new PutCleff(ClefTypes.BASS));
+        writer.addCommand(new PutCluster(null, new <uint>[60]));
+        writer.addCommand(new PutCluster(null, new <uint>[64]));
+        writer.addCommand(new PutCleff(ClefTypes.TREBLE));
+        writer.addCommand(new PutCluster(null, new <uint>[67]));
+        writer.addCommand(new PutCluster(null, new <uint>[60, 64, 68]));
+        writer.addCommand(new PutCluster(null, new <uint>[60, 64, 68, 73, 75]));
 
         writer.write();
     }
