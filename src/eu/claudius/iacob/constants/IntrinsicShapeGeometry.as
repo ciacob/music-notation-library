@@ -16,7 +16,7 @@ public class IntrinsicShapeGeometry {
 
     public static const TREBLE_CLEF:Rectangle = new Rectangle(0, 23.8, 13.996, 38.116);
 
-    public static const BASS_CLEFF:Rectangle = new Rectangle(0, 5.141, 14.508, 17.132);
+    public static const BASS_CLEFF:Rectangle = new Rectangle(0, 5.45, 14.508, 17.132);
 
     public static const FULL_NOTEHEAD:Rectangle = new Rectangle(0, 2.7, 6.517, 5.287);
 

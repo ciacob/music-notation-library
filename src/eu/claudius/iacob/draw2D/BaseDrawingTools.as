@@ -179,131 +179,6 @@ public class BaseDrawingTools {
     }
 
     /**
-     * Draws a full (i.e., not hollow) notehead to be used for depicting a musical pitch on a staff.
-     *
-     * More specifically, it draws an angled ellipse inside a container and returns information about the
-     * resulting ellipse's size, position and anchor points. Note that both the intrinsic ratio of the
-     * ellipse and its angle are fixed, and based on the MAJOR_AXIS_FACTOR and NOTEHEAD_ANGLE constants.
-     *
-     * @param   container
-     *          A Sprite (subclass) to draw the ellipse in.
-     *
-     * @param   leftX
-     *          The x-coordinate representing the ellipse's left boundary. Resulting ellipse will
-     *          be left-aligned to it.
-     *
-     * @param   centerY
-     *          The y-coordinate representing the ellipse's vertical center. Resulting ellipse will be
-     *          vertically centered on it.
-     *
-     * @param   maxHeight
-     *          The maximum height the ellipse is allowed to have, rotation observed. Resulting ellipse
-     *          will be at most as tall as this value.
-     *
-     * @param   color
-     *          Optional. The color to fill the ellipse with. Default is black.
-     *
-     * @return An object containing the following properties:
-     * - shape: The Shape object the notehead has been drawn in. It is already positioned and
-     *   rotated properly, and can be subjected to subsequent manipulation,such as recoloring via
-     *   `ColorTransform`.
-     *
-     * - leftAnchor: The rotated left major endpoint of the ellipse. Can be used for attaching a
-     *   downward stem to the notehead.
-     *
-     * - rightAnchor: The rotated right major endpoint of the ellipse. Can be used for attaching a
-     *   upward stem to the notehead.
-     *
-     * - bounds: A Rectangle representing the bounding box of the drawn notehead, in the
-     *   coordinates system of the given `container`. Can be used for zone hinting, or to draw a
-     *   visible selection box in a music editing application.
-     */
-    public static function drawFullNotehead(
-            container:Sprite,
-            leftX:Number,
-            centerY:Number,
-            maxHeight:Number,
-            color:uint = 0x000000):Object {
-
-        // Prepare for drawing.
-        var minorAxis:Number = BaseDrawingTools.calculateMinorAxis(maxHeight, NOTEHEAD_ANGLE);
-        var majorAxis:Number = minorAxis * NOTEHEAD_MAJOR_AXIS_FACTOR;
-        var initialLocalLeft:Number = (-majorAxis);
-        var initialLocalTop:Number = (-minorAxis);
-        var initialWidth:Number = (majorAxis * 2);
-        var initialHeight:Number = (minorAxis * 2);
-        var angleRadians:Number = NOTEHEAD_ANGLE * (Math.PI / 180);
-
-        // Draw inside a Shape, add the Shape to given container, rotate it, and position vertically.
-        var ellipse:Shape = new Shape();
-        var g:Graphics = ellipse.graphics;
-        g.beginFill(color);
-        g.drawEllipse(initialLocalLeft, initialLocalTop, initialWidth, initialHeight);
-        g.endFill();
-        container.addChild(ellipse);
-        ellipse.rotation = NOTEHEAD_ANGLE;
-        ellipse.y = centerY;
-
-        // COMPUTE INITIAL (NOT ROTATED) GEOMETRY POINTS.
-        var rotationPoint:Point = new Point(0, 0);
-
-        // initial left major endpoint
-        var initialLME:Point = new Point(initialLocalLeft, 0);
-
-        // initial right major endpoint
-        var initialRME:Point = new Point(majorAxis, 0);
-
-        // initial top minor endpoint
-        var initialTME:Point = new Point(0, initialLocalTop);
-
-        // initial bottom minor endpoint;
-        var initialBME:Point = new Point(0, minorAxis);
-
-        // COMPUTE FINAL (ROTATED) GEOMETRY POINTS.
-        // final left major endpoint
-        var finalLME:Point = rotatePoint(initialLME, rotationPoint, angleRadians);
-
-        // final right major endpoint
-        var finalRME:Point = rotatePoint(initialRME, rotationPoint, angleRadians);
-
-        // final top minor endpoint
-        var finalTME:Point = rotatePoint(initialTME, rotationPoint, angleRadians);
-
-        // final bottom minor end point
-        var finalBME:Point = rotatePoint(initialBME, rotationPoint, angleRadians);
-
-        // COMPUTE FINAL BOUNDS (not rotated bounds of the rotated geometry).
-        var finalLocalLeft:Number = Math.min(finalLME.x, finalRME.x, finalTME.x, finalBME.x);
-        var finalLocalRight:Number = Math.max(finalLME.x, finalRME.x, finalTME.x, finalBME.x);
-        var finalLocalTop:Number = Math.min(finalLME.y, finalRME.y, finalTME.y, finalBME.y);
-        var finalLocalBottom:Number = Math.max(finalLME.y, finalRME.y, finalTME.y, finalBME.y);
-        var finalWidth:Number = (finalLocalRight - finalLocalLeft);
-        var finalHeight:Number = (finalLocalBottom - finalLocalTop);
-        leftX += (finalWidth / 2);
-        var parentBounds:Rectangle = new Rectangle(
-                leftX + finalLocalLeft,
-                centerY + finalLocalTop,
-                finalWidth,
-                finalHeight
-        );
-
-        // Position the ellipse horizontally
-        ellipse.x = leftX;
-
-        // Reinterpret useful geometry in the context of the given `container` and return it.
-        finalLME.x += leftX;
-        finalLME.y += centerY;
-        finalRME.x += leftX;
-        finalRME.y += centerY;
-        return {
-            shape: ellipse,
-            bounds: parentBounds,
-            leftAnchor: finalLME,
-            rightAnchor: finalRME
-        };
-    }
-
-    /**
      * Instantiates a precompiled shape from an embedded SWF and adds it to given `container`, at requested
      * (`x`,`y`) coordinates, offset according to given `anchorPoint` and scaled with respect to given
      * `stepSize`. Returns an Object with useful information.
@@ -356,7 +231,6 @@ public class BaseDrawingTools {
             stepSize:Number,
             color:uint = 0x000000,
             anchorPoint:Point = null):Object {
-
 
         const INTRINSIC_COLOR:uint = 0x000000;
 
@@ -546,39 +420,5 @@ public class BaseDrawingTools {
         var scaleFactor : Number = getScaleForStepSize (stepSize);
         return scaleShapeGeometry (shapeGeometry, scaleFactor);
     }
-
-    /**
-     * Rotates a point around a specified origin by a given angle in radians.
-     *
-     * @param point The point to be rotated.
-     * @param origin The point serving as the rotation origin.
-     * @param angleInRadians The angle in radians by which to rotate the point.
-     *
-     * @return A new Point representing the rotated position of the original point.
-     */
-    public static function rotatePoint(point:Point, origin:Point, angleInRadians:Number):Point {
-        var rotatedX:Number = point.x * Math.cos(angleInRadians) - point.y * Math.sin(angleInRadians);
-        var rotatedY:Number = point.x * Math.sin(angleInRadians) + point.y * Math.cos(angleInRadians);
-        return new Point(rotatedX, rotatedY);
-    }
-
-    /**
-     * Calculates the minor axis of an ellipse that fits within a specified vertical space when rotated at a given angle.
-     *
-     * @param verticalSpace The vertical space in pixels where the rotated ellipse needs to fit.
-     * @param angleInDegrees The angle of rotation in degrees for the ellipse.
-     * @return The minor axis length of the ellipse in pixels.
-     */
-    public static function calculateMinorAxis(verticalSpace:Number, angleInDegrees:Number):Number {
-        // Convert the angle from degrees to radians
-        var angleInRadians:Number = angleInDegrees * (Math.PI / 180);
-
-        // Calculate the minor axis using trigonometry
-        // The minor axis is half of the vertical space divided by the cosine of the angle
-        var minorAxis:Number = verticalSpace / (2 * Math.cos(angleInRadians));
-        return minorAxis;
-    }
-
-
 }
 }

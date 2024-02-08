@@ -1,5 +1,6 @@
 package eu.claudius.iacob.music.writer.commands {
 import eu.claudius.iacob.common.MusicUtils;
+import eu.claudius.iacob.constants.AccidentalTypes;
 import eu.claudius.iacob.constants.ClefTypes;
 import eu.claudius.iacob.constants.Commands;
 import eu.claudius.iacob.constants.IntrinsicShapeGeometry;
@@ -50,6 +51,26 @@ public class PutCluster extends AbstractScoreWritingCommand {
     }
 
     /**
+     * Removes duplicate values from a Vector of uints, keeping the first occurrence of each unique value.
+     *
+     * @param   source
+     *          The Vector of uints from which duplicates should be removed.
+     *
+     * @return  A Vector of uints with duplicate values removed, maintaining the order of the first occurrences.
+     */
+    private function _removeDuplicates(source:Vector.<uint>):Vector.<uint> {
+        const uniquePitches:Vector.<uint> = new Vector.<uint>();
+        const encounteredPitches:Object = {};
+        for each (var pitch:uint in source) {
+            if (!encounteredPitches[pitch]) {
+                uniquePitches.push(pitch);
+                encounteredPitches[pitch] = true;
+            }
+        }
+        return uniquePitches;
+    }
+
+    /**
      * Command to draw a "cluster" on the canvas, i.e., zero, one, or several noteheads positioned on the
      * last defined staff, as to musically represent, respectively, a rest, a note, or a chord. The
      * command only receives musical information and inferences the correct drawing methods to call, and
@@ -94,6 +115,12 @@ public class PutCluster extends AbstractScoreWritingCommand {
         if (!duration) {
             duration = Fraction.ZERO;
         }
+
+        // Filter out duplicate MIDI pitches and sort them from lowest to highest.
+        midiPitches = _removeDuplicates(midiPitches);
+        midiPitches.sort(function (pitchA:uint, pitchB:uint):int {
+            return (pitchA - pitchB)
+        });
 
         const params:Vector.<Number> = new Vector.<Number>;
         params.push(duration.numerator, duration.denominator);
@@ -174,7 +201,6 @@ public class PutCluster extends AbstractScoreWritingCommand {
     override public function execute(context:IScoreContext = null):Object {
         if (context && context.container && context.$has(Prefixes.STAFF)) {
 
-            var staffBounds:Rectangle = context.$get('bounds', Prefixes.STAFF) as Rectangle;
             var prevObjectBounds:Rectangle = context.$get('bounds') as Rectangle;
             var staffPositions:Array = context.$get('intrinsicPositions', Prefixes.STAFF) as Array;
             var underPosition:Number = context.$get('underPosition', Prefixes.STAFF) as Number;
@@ -198,32 +224,24 @@ public class PutCluster extends AbstractScoreWritingCommand {
                 return null;
             }
 
-            // We need to know the width of individual noteheads types in order to accommodate ledger lines,
-            // if any, as those must push notes to the right in order to secure a portion where they are
-            // clearly visible.
+            // We need to know the width of individual noteheads types in order to accommodate
+            // ledger lines, if any, as those must push notes to the right in order to secure a
+            // portion where they are clearly visible.
             var fullNoteheadW:Number = context.$get(Keys.FULL_NOTEHEAD_WIDTH) as Number;
             if (!fullNoteheadW) {
                 fullNoteheadW = BaseDrawingTools.measureShape(IntrinsicShapeGeometry.FULL_NOTEHEAD, staffStep).width;
                 context.store(fullNoteheadW, Keys.FULL_NOTEHEAD_WIDTH);
             }
 
-            // We need to know the width of individual accidentals in order to correctly
-            // shift other elements to the right, such as ledger lines and noteheads, when applicable.
-            var sharpW:Number = context.$get(Keys.SHARP_WIDTH) as Number;
-            if (!sharpW) {
-                sharpW = BaseDrawingTools.measureShape(IntrinsicShapeGeometry.SHARP_SIGN, staffStep).width;
-                context.store(sharpW, Keys.SHARP_WIDTH);
-            }
-
-            // We need to separate noteheads horizontally (i.e., to avoid collisions between seconds) and
-            // vertically (i.e., on staff, under the staff, or over the staff). We also need to account
-            // for accidentals, as these will push both notes and ledger lines to the right.
+            // We need to separate noteheads horizontally (i.e., to avoid collisions between
+            // seconds) and vertically (i.e., on staff, under the staff, or over the staff). We
+            // also need to account for accidentals, as these will push both notes and ledger lines
+            // to the right.
             const PRIMARY_TAG:String = 'primary';
             const SECONDARY_TAG:String = 'secondary';
             const INTRINSIC_TAG:String = 'intrinsic';
             const UNDER_TAG:String = 'under';
             const OVER_TAG:String = 'over';
-            const ACCIDENTAL_TAG:String = 'accidental';
             var lastPosition:Number = NaN;
             var positionDelta:int = 0;
             var positionsInfo:Array = [];
@@ -233,52 +251,52 @@ public class PutCluster extends AbstractScoreWritingCommand {
             var ledgerPosition:uint = 0;
             var i:int;
             var positionInfo:Object;
+            var midiPitch:uint;
+            var currentPosition:int;
             for (i = 0; i < midiPitches.length; i++) {
-                var midiPitch:uint = midiPitches[i];
+                midiPitch = midiPitches[i];
                 positionInfo = MusicUtils.midiToPosition(midiPitch, clefType);
-                var currentPosition:int = positionInfo.position;
-                var $t:Array = [];
-                if (positionInfo.isBlackKey) {
-                    $t.push(ACCIDENTAL_TAG);
-                }
+                currentPosition = positionInfo.position;
+                tags = [];
                 if (!isNaN(lastPosition)) {
                     positionDelta = Math.abs(currentPosition - lastPosition);
                     if (positionDelta < 2) {
-                        $t.push(SECONDARY_TAG);
+                        tags.push(SECONDARY_TAG);
                     } else {
-                        $t.push(PRIMARY_TAG);
+                        tags.push(PRIMARY_TAG);
                         lastPosition = currentPosition;
                     }
                 } else {
-                    $t.push(PRIMARY_TAG);
+                    tags.push(PRIMARY_TAG);
                     lastPosition = currentPosition;
                 }
                 if (currentPosition < 0) {
-                    $t.push(UNDER_TAG);
+                    tags.push(UNDER_TAG);
                     mustShowLedgerLines = true;
                     ledgerPosition = Math.abs(currentPosition);
                     if (ledgerPosition > numLowerPositions) {
                         numLowerPositions = ledgerPosition;
                     }
                 } else if (currentPosition > LAST_STANDARD_POSITION) {
-                    $t.push(OVER_TAG);
+                    tags.push(OVER_TAG);
                     mustShowLedgerLines = true;
                     ledgerPosition = (currentPosition - LAST_STANDARD_POSITION);
                     if (ledgerPosition > numUpperPositions) {
                         numUpperPositions = ledgerPosition;
                     }
                 } else {
-                    $t.push(INTRINSIC_TAG);
+                    tags.push(INTRINSIC_TAG);
                 }
-                positionInfo.tags = $t;
+                positionInfo.tags = tags;
                 positionsInfo.push(positionInfo);
             }
 
-            // By now we should have all the info needed for the actual drawing. We will first draw the ledger
-            // lines, if any are needed, then the accidentals, if any is needed and then the notes.
-            var ledgerLinesX:Number = prevObjectBounds.right + hPadding;
-            var haveTwoColumnsLedger:Boolean;
-            var ledgerLinesWidth:Number;
+            // By now we should have all the info needed for the actual drawing. We will first draw
+            // the ledger lines, if any are needed, then the accidentals, if any is needed, and
+            // then the notes.
+            var noteInitialX:Number = prevObjectBounds.right + hPadding;
+            var haveWideLedger:Boolean;
+            var ledgerWidth:Number;
             var numLedgerLines:uint;
             var result:Object;
 
@@ -287,15 +305,15 @@ public class PutCluster extends AbstractScoreWritingCommand {
             var ledgerBelowShape:Shape;
             var ledgerBelowBounds:Rectangle;
             if (mustShowLedgerLines && numLowerPositions) {
-                haveTwoColumnsLedger = (positionsInfo.filter(function (item:Object, ...ignore):Boolean {
+                haveWideLedger = (positionsInfo.filter(function (item:Object, ...ignore):Boolean {
                     tags = item.tags;
                     return !!(tags && tags.length && tags.indexOf(UNDER_TAG) != -1 && tags.indexOf(SECONDARY_TAG) != -1);
 
                 }).length > 0);
-                ledgerLinesWidth = haveTwoColumnsLedger ? fullNoteheadW * 2.5 : fullNoteheadW * 1.5;
+                ledgerWidth = haveWideLedger ? fullNoteheadW * 2.5 : fullNoteheadW * 1.5;
                 numLedgerLines = Math.ceil(numLowerPositions / 2);
-                result = BaseDrawingTools.drawStaffLines(context.container, numLedgerLines, ledgerLinesWidth,
-                        new Point(ledgerLinesX, underPosition - staffLineThickness / 2));
+                result = BaseDrawingTools.drawStaffLines(context.container, numLedgerLines, ledgerWidth,
+                        new Point(noteInitialX, underPosition - staffLineThickness / 2));
                 ledgerBelowShape = result.shape;
                 ledgerBelowBounds = result.bounds;
                 ledgerBelowPositions = result.intrinsicPositions;
@@ -306,31 +324,45 @@ public class PutCluster extends AbstractScoreWritingCommand {
             var ledgerAboveShape:Shape;
             var ledgerAboveBounds:Rectangle;
             if (mustShowLedgerLines && numUpperPositions) {
-                haveTwoColumnsLedger = (positionsInfo.filter(function (item:Object, ...ignore):Boolean {
+                haveWideLedger = (positionsInfo.filter(function (item:Object, ...ignore):Boolean {
                     tags = item.tags;
                     return !!(tags && tags.length && tags.indexOf(OVER_TAG) != -1 && tags.indexOf(SECONDARY_TAG) != -1);
 
                 }).length > 0);
-                ledgerLinesWidth = haveTwoColumnsLedger ? fullNoteheadW * 2.5 : fullNoteheadW * 1.5;
+                ledgerWidth = haveWideLedger ? fullNoteheadW * 2.5 : fullNoteheadW * 1.5;
                 numLedgerLines = Math.ceil(numUpperPositions / 2);
                 var expectedLedgerHeight:Number = BaseDrawingTools.measureStaff(numLedgerLines);
-                result = BaseDrawingTools.drawStaffLines(context.container, numLedgerLines, ledgerLinesWidth,
-                        new Point(ledgerLinesX, overPosition - expectedLedgerHeight + staffLineThickness / 2));
+                result = BaseDrawingTools.drawStaffLines(context.container, numLedgerLines, ledgerWidth,
+                        new Point(noteInitialX, overPosition - expectedLedgerHeight + staffLineThickness / 2));
                 ledgerAboveShape = result.shape;
                 ledgerAboveBounds = result.bounds;
                 ledgerAbovePositions = result.intrinsicPositions;
             }
 
             // Draw the accidentals, if applicable
-            var accidentalsInitialX:Number = prevObjectBounds.right + hPadding;
-            var accidentalEffectiveX:Number = accidentalsInitialX;
             accidentalInducedOffset = 0;
+            var accidentalInitialX:Number = prevObjectBounds.right + hPadding;
+            var accidentalEffectiveX:Number = accidentalInitialX;
             var accidentalBounds:Vector.<Rectangle> = new Vector.<Rectangle>;
             var accidentalShapes:Vector.<Sprite> = new Vector.<Sprite>;
             var accidentalPitches:Array = positionsInfo.filter(function (item:Object, ...ignore):Boolean {
-                tags = item.tags;
-                return !!(tags && tags.length && tags.lastIndexOf(ACCIDENTAL_TAG) != -1);
+                return item.isBlackKey;
             });
+
+            // Handle corner-case: minor second made of same-pitch class notes, e.g., C and C#. One
+            // SHARP and one NATURAL accidental should be displayed adjacent to each other in this
+            // situation, in front of the double headed C pitch. The natural will be closest to the
+            // note.
+            var forcedNaturals:Array = positionsInfo.filter(function (item:Object, i:int, p:Array):Boolean {
+                if (p[i + 1] && !item.isBlackKey && p[i + 1].pitchClass == item.pitchClass) {
+                    item.accidentalType = AccidentalTypes.NATURAL;
+                    return true;
+                }
+                return false;
+            });
+            if (forcedNaturals.length) {
+                accidentalPitches = accidentalPitches.concat(forcedNaturals);
+            }
 
             // It is common practice to draw accidentals from the highest pitched to the lowest,
             // so that, if any relocation is needed in order to avoid collisions, the highest
@@ -342,21 +374,44 @@ public class PutCluster extends AbstractScoreWritingCommand {
                 tags = (accidentalPitch.tags as Array);
                 isOver = (tags.indexOf(OVER_TAG) != -1);
                 isUnder = (tags.indexOf(UNDER_TAG) != -1);
-                x = accidentalsInitialX;
+                x = accidentalInitialX;
                 y = isUnder ?
                         ledgerBelowPositions [ledgerBelowPositions.length - 1 + accidentalPitch.position] : isOver ?
                                 ledgerAbovePositions [accidentalPitch.position - LAST_STANDARD_POSITION] :
                                 staffPositions[accidentalPitch.position];
 
-                // Draw the accidental at the horizontal position where the noteheads would normally
-                // be drawn; keep horizontally offsetting the accidentals in respect to each other (to
-                // the left, repeatedly, as needed) so that they do not collide; once they've reached
-                // equilibrium, shift them right in bloc, and move the already drawn ledger lines (if
-                // applicable to their right); draw the noteheads in relation to the moved ledger lines
-                // thereafter.
-                accidentalResult = BaseDrawingTools.placeSharp(context.container, x, y, staffStep);
+                // Initially draw the accidental at the horizontal position where the noteheads would
+                // normally be drawn.
+                var fn:Function;
+                switch (accidentalPitch.accidentalType) {
+                    case AccidentalTypes.SHARP:
+                        fn = BaseDrawingTools.placeSharp;
+                        break;
+                    case AccidentalTypes.FLAT:
+                        fn = BaseDrawingTools.placeFlat;
+                        break;
+                    case AccidentalTypes.NATURAL:
+                        fn = BaseDrawingTools.placeNatural;
+                        break;
+                }
+                if (!fn) {
+                    continue;
+                }
+                accidentalResult = fn(context.container, x, y, staffStep);
                 var currAccidentalShape:Sprite = (accidentalResult.shape as Sprite);
                 var currBounds:Rectangle = (accidentalResult.bounds);
+
+                // Right-align the accidental; this will give common ground to different types of
+                // accidentals, such as sharps, naturals and flats, which have various widths. This way,
+                // there will be a common gap between the accidental and the following notehead, regardless
+                // of its type (and, therefore, width).
+                currBounds.x -= currBounds.width;
+                currAccidentalShape.x = currBounds.x;
+
+                // Keep horizontally offsetting the accidentals in respect to each other (to the left,
+                // repeatedly, as needed) so that they do not collide; once they've reached equilibrium,
+                // shift them right in bloc, and move the already drawn ledger lines (if applicable to
+                // their right); draw the noteheads in relation to the moved ledger lines thereafter.
                 MusicUtils.leftShiftAsNeeded(currBounds, accidentalBounds, iPadding);
                 currAccidentalShape.x = currBounds.x;
                 if (currBounds.x < accidentalEffectiveX) {
@@ -365,31 +420,25 @@ public class PutCluster extends AbstractScoreWritingCommand {
                 accidentalBounds.push(currBounds as Rectangle);
                 accidentalShapes.push(currAccidentalShape);
             }
-            if (accidentalEffectiveX != accidentalsInitialX) {
-                accidentalInducedOffset = (accidentalsInitialX - accidentalEffectiveX);
-                for (i = 0; i < accidentalShapes.length; i++) {
-                    currAccidentalShape = accidentalShapes[i];
-                    currAccidentalShape.x += accidentalInducedOffset;
-                    currBounds = accidentalBounds[i];
-                    currBounds.x += accidentalInducedOffset;
-                    _storeIndividualBounds(currBounds);
-                }
 
-                // The initial accidental was already right-shifted by `iPadding`. If there were
-                // several accidentals involving relocation, this offset was carried out along the way;
-                // we need to make sure we don't push to the right notes and ledger lines more
-                // than needed when there are several accidentals, so we subtract it first.
-                accidentalInducedOffset -= iPadding;
-            } else {
-                if (accidentalResult) {
-                    _storeIndividualBounds(accidentalResult.bounds);
-                }
+            // Note: by now, `accidentalEffectiveX` should always be "less than" `accidentalsInitialX`,
+            // at the very least by the accidental own width (since we right-aligned the accidental
+            // to its initial X position).
+            accidentalInducedOffset = (accidentalInitialX - accidentalEffectiveX);
+            for (i = 0; i < accidentalShapes.length; i++) {
+                currAccidentalShape = accidentalShapes[i];
+                currAccidentalShape.x += accidentalInducedOffset;
+                currBounds = accidentalBounds[i];
+                currBounds.x += accidentalInducedOffset;
+                _storeIndividualBounds(currBounds);
             }
 
+            // If we drew any accidentals, make amendments to the symbols following them
+            // (ledger lines, if any, and noteheads).
             if (accidentalPitches.length > 0) {
-                // Account for the width of the right-most accidental and the internal padding
-                // between (accidentals and noteheads).
-                accidentalInducedOffset += (sharpW + iPadding);
+
+                // Add a padding between accidentals and noteheads.
+                accidentalInducedOffset += iPadding;
 
                 // If we have ledger lines, move them to the right to accommodate the accidentals.
                 if (ledgerBelowShape) {
@@ -400,11 +449,10 @@ public class PutCluster extends AbstractScoreWritingCommand {
                     ledgerAboveShape.x += accidentalInducedOffset;
                     ledgerAboveBounds.x += accidentalInducedOffset;
                 }
-                if (ledgerBelowShape || ledgerAboveShape) {
-                    ledgerLinesX += accidentalInducedOffset;
-                }
-            }
 
+                // Shift noteheads start position to the right, to account for all accidentals.
+                noteInitialX += accidentalInducedOffset;
+            }
 
             // Record ledger lines horizontal position only at this point, so that it accounts for
             // the horizontal offset induced by accidentals, if applicable.
@@ -415,10 +463,9 @@ public class PutCluster extends AbstractScoreWritingCommand {
                 _storeIndividualBounds(ledgerAboveBounds);
             }
 
-
             // Draw the noteheads, in two columns if there is at least one seconds, or in a single column
             // otherwise.
-            var noteheadsX:Number = ledgerLinesX + (mustShowLedgerLines ? fullNoteheadW * 0.25 : 0);
+            var noteheadsX:Number = noteInitialX + (mustShowLedgerLines ? fullNoteheadW * 0.25 : 0);
             for (i = 0; i < positionsInfo.length; i++) {
                 positionInfo = positionsInfo[i] as Object;
                 tags = positionInfo.tags;

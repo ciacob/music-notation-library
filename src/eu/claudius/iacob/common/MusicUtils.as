@@ -1,4 +1,5 @@
 package eu.claudius.iacob.common {
+import eu.claudius.iacob.constants.AccidentalTypes;
 import eu.claudius.iacob.constants.ClefTypes;
 import eu.claudius.iacob.constants.CleffOffsets;
 
@@ -103,18 +104,32 @@ public class MusicUtils {
      * @param midiNote The MIDI note value to convert.
      * @param clefType The type of clef (e.g., ClefTypes.BASS, ClefTypes.TREBLE).
      * @return An Object containing the following properties:
-     * - midiNote: The original MIDI note value.
-     * - matchingNote: The corresponding diatonic note (e.g., "white key", such as "C", "D", "G", etc).
-     * - octaveIndex: The index of the octave that the note belongs to (e.g., 4 for Middle C).
-     * - position: The position of the note on the musical staff based on the specified clef.
+     * - midiNote:      The original MIDI note value.
+     *
+     * - matchingNote:  The corresponding diatonic note (e.g., "white key", such as "C", "D", "G", etc).
+     *
+     * - octaveIndex:   The index of the octave that the note belongs to (e.g., 4 for Middle C).
+     *
+     * - position:      The position of the note on the musical staff based on the specified clef.
+     *
+     * - isBlackKey:    Whether the note would be a black key on a piano keyboard; i.e., whether it is a chromatic
+     *                  pitch (true) or diatonic pitch (false).
+     *
+     * - pitchClass:    The base name of a pitch, ignoring its alteration, e.g., "A" instead of "A#".
      */
     public static function midiToPosition(midiNote:uint, clefType:int):Object {
+
+
 
         // Calculate the MIDI note index within the lookup table
         const index:uint = midiNote % 12;
         var matchingNote:String = CHROMATIC_SCALE[index];
         const octaveIndex:int = (midiNote - index) / 12 - 1;
+        const pitchClass:String = CHROMATIC_SCALE[index].charAt(0);
         const isBlackKey:Boolean = !!CHROMATIC_MAP[index];
+
+        // TODO: add logic to etablish enharmonic writing of accidentals
+        const accidentalType : int = isBlackKey? AccidentalTypes.SHARP : AccidentalTypes.NONE;
 
         // "Middle C" is in octave with index "4"
         const deltaToMiddleOctave:int = octaveIndex - MIDDLE_C_OCTAVE_INDEX;
@@ -143,7 +158,9 @@ public class MusicUtils {
             "matchingNote": matchingNote,
             "octaveIndex": octaveIndex,
             "position": position,
-            "isBlackKey": isBlackKey
+            "pitchClass": pitchClass,
+            "isBlackKey": isBlackKey,
+            "accidentalType": accidentalType
         }
     }
 
@@ -179,6 +196,7 @@ public class MusicUtils {
      */
     public static function leftShiftAsNeeded(currRectangle:Rectangle, otherRectangles:Vector.<Rectangle>, padding:int = 5):void {
         var intersects:Boolean = false;
+        var otherRectW : Number;
 
         // Continue checking for intersections until no more intersections are found
         while (true) {
@@ -188,13 +206,14 @@ public class MusicUtils {
             for each (var otherRect:Rectangle in otherRectangles) {
                 if (currRectangle.intersects(otherRect)) {
                     intersects = true;
+                    otherRectW = otherRect.width;
                     break; // No need to check further if there's an intersection
                 }
             }
 
             // If intersection is found, slide the current rectangle to the left
             if (intersects) {
-                currRectangle.x -= currRectangle.width + padding;
+                currRectangle.x -= (otherRectW + padding);
             } else {
                 // No intersections found, exit the loop
                 break;

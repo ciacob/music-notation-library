@@ -8,7 +8,7 @@ import eu.claudius.iacob.music.writer.IScoreContext;
 
 import flash.geom.Rectangle;
 
-public class PutCleff extends AbstractScoreWritingCommand {
+public class PutClef extends AbstractScoreWritingCommand {
 
     /**
      * Command to draw a clef on the most recently drawn staff. Calls into
@@ -23,7 +23,7 @@ public class PutCleff extends AbstractScoreWritingCommand {
      * @param   color
      *          The color to draw the clef in, optional. See `BaseDrawingTools.placeShape()` for defaults.
      */
-    public function PutCleff(type:int, color:uint = 0) {
+    public function PutClef(type:int, color:uint = 0) {
 
         var params:Vector.<Number> = new Vector.<Number>;
         params.push(type, color);
